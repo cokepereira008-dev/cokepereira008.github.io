@@ -1,0 +1,383 @@
+@font-face {
+  font-family: 'Sometype Mono';
+  src: url('typography/SometypeMono-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Sometype Mono';
+  src: url('typography/SometypeMono-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Sometype Mono';
+  src: url('typography/SometypeMono-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  cursor: url('cursor-arrow.svg') 1 1, pointer;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: #ffffff;
+  color: #000000;
+  font-family: 'Sometype Mono', Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 0.75rem 2rem;
+  background: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-title {
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+.projects {
+  padding-top: 3.25rem;
+}
+
+.project {
+  padding: 3rem 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.project.last {
+  padding-bottom: 0;
+  margin-bottom: -1rem;
+}
+
+.project-image-container {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  min-height: 500px;
+  max-height: 800px;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: #000000;
+  cursor: pointer;
+  padding: 1.5rem;
+  opacity: 0.3;
+  transition: opacity 0.2s ease;
+  z-index: 10;
+}
+
+@media (max-width: 640px) {
+  .image-arrow {
+    display: none;
+  }
+}
+
+.image-arrow-left {
+  left: 1rem;
+}
+
+.image-arrow-right {
+  right: 1rem;
+}
+
+.image-arrow svg {
+  display: block;
+}
+
+.project-image-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  opacity: 1;
+  transition: opacity 0.15s ease;
+}
+
+.project-video {
+  display: none;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.project-video.active {
+  display: block;
+}
+
+.project-image.fade-out {
+  opacity: 0;
+}
+
+.image-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%) translateX(-100%);
+  background: transparent;
+  border: none;
+  color: #000000;
+  cursor: pointer;
+  padding: 1.5rem;
+  opacity: 0.3;
+  transition: opacity 0.2s ease;
+  z-index: 10;
+}
+
+.image-arrow-left {
+  left: 0;
+  transform: translateY(-50%) translateX(-100%);
+}
+
+.image-arrow-right {
+  right: 0;
+  transform: translateY(-50%) translateX(100%);
+}
+
+.image-arrow svg {
+  display: block;
+}
+
+.project-info {
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.project-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+  letter-spacing: 0em;
+  text-transform: uppercase;
+}
+
+.project-description {
+  font-size: 1rem;
+  font-weight: 400;
+  max-width: 460px;
+  margin: 0 auto 0.5rem;
+  line-height: 1.6;
+  color: #333333;
+  letter-spacing: 0em;
+  text-wrap: pretty;
+}
+
+.project-meta {
+  font-size: 0.75rem;
+  font-weight: 300;
+  letter-spacing: 0.03em;
+  color: #666666;
+  text-transform: uppercase;
+}
+
+.project-title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.project-title a:hover {
+  text-decoration: underline;
+}
+
+.project-description a {
+  color: inherit;
+  text-decoration: none;
+  text-decoration-color: #999999;
+}
+
+.project-description a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+  .header {
+    padding: 0.75rem 1.5rem;
+  }
+
+  .project {
+    padding: 2rem 1rem;
+  }
+
+  .project-image-container {
+    height: 55vh;
+    min-height: 350px;
+  }
+
+  .project-title {
+    font-size: 1.125rem;
+  }
+
+  .project-description {
+    font-size: 0.9375rem;
+  }
+}
+
+.footer {
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+
+.footer-arrow {
+  display: inline-block;
+  background: transparent;
+  border: none;
+  color: #000000;
+  cursor: pointer;
+  padding: 0;
+  opacity: 0.3;
+  transition: opacity 0.2s ease;
+  transform: rotate(-90deg);
+  margin: 0;
+  line-height: 1;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.footer-arrow:hover {
+  opacity: 0.7;
+}
+
+.footer-arrow svg {
+  display: block;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.footer-link {
+  font-size: 0.75rem;
+  font-weight: 300;
+  letter-spacing: 0.01em;
+  color: #666666;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.footer-link:hover {
+  color: #000000;
+}
+
+@media (max-width: 640px) {
+  .footer {
+    padding: 2rem 1rem;
+  }
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  padding: 2rem;
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+
+.modal-content {
+  background: transparent;
+  max-width: 460px;
+  width: 100%;
+  padding: 2.5rem 2.5rem 2.5rem 2.5rem;
+  position: relative;
+  text-align: center;
+}
+
+.modal-title {
+  font-size: 0.75rem;
+  font-weight: 300;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.modal-close {
+  position: absolute;
+  top: 2.1rem;
+  right: 2rem;
+  background: transparent;
+  border: none;
+  color: #000000;
+  cursor: pointer;
+  padding: 0;
+  opacity: 0.5;
+  transition: opacity 0.2s ease;
+  line-height: 1;
+}
+  transform: translateY(-50%);
+}
+
+.modal-close:hover {
+  opacity: 1;
+}
+
+.modal-text {
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.8;
+  color: #333333;
+}
+
+.modal-text p {
+  margin: 0;
+}
