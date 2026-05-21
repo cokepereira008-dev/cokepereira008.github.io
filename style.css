@@ -378,6 +378,12 @@ body {
   color: #333333;
 }
 
+a[target="_blank"]::after {
+  content: " ↗";
+  font-size: 0.65em;
+  vertical-align: super;
+}
+
 .modal-text p {
   margin: 0;
 }

@@ -273,12 +273,21 @@ document.querySelector('[data-modal="imprint"]').addEventListener('click', funct
   document.getElementById('imprint-modal').classList.add('active');
 });
 
-document.querySelector('.modal-close').addEventListener('click', function() {
-  document.getElementById('imprint-modal').classList.remove('active');
+document.querySelector('[data-modal="about"]').addEventListener('click', function(e) {
+  e.preventDefault();
+  document.getElementById('about-modal').classList.add('active');
 });
 
-document.getElementById('imprint-modal').addEventListener('click', function(e) {
-  if (e.target === this) {
-    this.classList.remove('active');
-  }
+document.querySelectorAll('.modal-close').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    this.closest('.modal-overlay').classList.remove('active');
+  });
+});
+
+document.querySelectorAll('.modal-overlay').forEach(function(overlay) {
+  overlay.addEventListener('click', function(e) {
+    if (e.target === this) {
+      this.classList.remove('active');
+    }
+  });
 });
