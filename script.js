@@ -203,10 +203,12 @@ function setupProject(projectId) {
   var touchEndX = 0;
 
   project.addEventListener('touchstart', function(e) {
+    if (e.touches.length > 1) return;
     touchStartX = e.changedTouches[0].screenX;
   }, false);
 
   project.addEventListener('touchend', function(e) {
+    if (e.changedTouches.length > 1) return;
     touchEndX = e.changedTouches[0].screenX;
     if (touchStartX - touchEndX > 50) {
       handleRightClick();
