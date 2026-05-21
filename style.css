@@ -96,7 +96,7 @@ body {
   background: transparent;
   border: none;
   color: #000000;
-  cursor: pointer;
+  cursor: url('cursor-arrow.svg') 1 1, pointer;
   padding: 1.5rem;
   opacity: 0.3;
   transition: opacity 0.2s ease;
@@ -152,15 +152,15 @@ body {
   opacity: 0;
 }
 
-.image-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%) translateX(-100%);
-  background: transparent;
-  border: none;
-  color: #000000;
-  cursor: pointer;
-  padding: 1.5rem;
+  .image-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) translateX(-100%);
+    background: transparent;
+    border: none;
+    color: #000000;
+    cursor: url('cursor-arrow.svg') 1 1, pointer;
+    padding: 1.5rem;
   opacity: 0.3;
   transition: opacity 0.2s ease;
   z-index: 10;
@@ -264,7 +264,7 @@ body {
   background: transparent;
   border: none;
   color: #000000;
-  cursor: pointer;
+  cursor: url('cursor-arrow.svg') 1 1, pointer;
   padding: 0;
   opacity: 0.3;
   transition: opacity 0.2s ease;
@@ -358,7 +358,7 @@ body {
   background: transparent;
   border: none;
   color: #000000;
-  cursor: pointer;
+  cursor: url('cursor-arrow.svg') 1 1, pointer;
   padding: 0;
   opacity: 0.5;
   transition: opacity 0.2s ease;
