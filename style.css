@@ -384,6 +384,18 @@ a[target="_blank"]::after {
   vertical-align: super;
 }
 
+.project-title a[target="_blank"] {
+  position: relative;
+}
+
+.project-title a[target="_blank"]::after {
+  content: "↗";
+  font-size: 0.65em;
+  position: absolute;
+  top: 0;
+  right: -1.2em;
+}
+
 .modal-text p {
   margin: 0;
 }
