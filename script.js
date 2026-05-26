@@ -127,15 +127,6 @@ function setupProject(projectId) {
     videoOverlay.innerHTML = '<svg width="24" height="24" viewBox="0 0 36 36"><path d="M12 9l15 9-15 9z" fill="currentColor"/></svg>';
     project.querySelector('.project-image-container').appendChild(videoOverlay);
 
-    videoOverlay.addEventListener('click', function(e) {
-      e.stopPropagation();
-      if (video.paused) {
-        video.play();
-      } else {
-        video.pause();
-      }
-    });
-
     video.addEventListener('play', function() {
       videoOverlay.innerHTML = '<svg width="24" height="24" viewBox="0 0 36 36"><path d="M11 8h6v20h-6zM19 8h6v20h-6z" fill="currentColor"/></svg>';
     });

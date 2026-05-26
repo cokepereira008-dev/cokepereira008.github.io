@@ -179,7 +179,6 @@ body {
 
 .project-image-wrapper:hover ~ .video-overlay.visible {
   opacity: 1;
-  pointer-events: auto;
 }
 
 .project-info {
