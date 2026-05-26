@@ -53,7 +53,7 @@ const projects = {
       'media/sutura/tipografia sutura-27.png'
     ],
     autoplay: true,
-    autoplaySpeed: 300,
+    autoplaySpeed: 500,
     autoplayStartIndex: 2
   },
   OO8: {
@@ -120,6 +120,31 @@ function setupProject(projectId) {
   const leftArrow = project.querySelector('.image-arrow-left');
   const rightArrow = project.querySelector('.image-arrow-right');
 
+  let videoOverlay = null;
+  if (video) {
+    videoOverlay = document.createElement('div');
+    videoOverlay.className = 'video-overlay';
+    videoOverlay.innerHTML = '<svg width="36" height="36" viewBox="0 0 36 36"><path d="M12 9l15 9-15 9z" fill="currentColor"/></svg>';
+    project.querySelector('.project-image-container').appendChild(videoOverlay);
+
+    videoOverlay.addEventListener('click', function(e) {
+      e.stopPropagation();
+      if (video.paused) {
+        video.play();
+      } else {
+        video.pause();
+      }
+    });
+
+    video.addEventListener('play', function() {
+      videoOverlay.innerHTML = '<svg width="36" height="36" viewBox="0 0 36 36"><path d="M11 8h6v20h-6zM19 8h6v20h-6z" fill="currentColor"/></svg>';
+    });
+
+    video.addEventListener('pause', function() {
+      videoOverlay.innerHTML = '<svg width="36" height="36" viewBox="0 0 36 36"><path d="M12 9l15 9-15 9z" fill="currentColor"/></svg>';
+    });
+  }
+
   function showMedia(index) {
     var files = state.media || state.images || [];
     var total = files.length;
@@ -137,12 +162,14 @@ function setupProject(projectId) {
         video.classList.add('active');
         video.currentTime = 0;
         video.play();
+        if (videoOverlay) videoOverlay.classList.add('visible');
       }
     } else {
       if (video) {
         video.pause();
         video.style.display = 'none';
         video.classList.remove('active');
+        if (videoOverlay) videoOverlay.classList.remove('visible');
       }
       img.style.display = 'block';
       img.classList.add('fade-out');
@@ -249,23 +276,6 @@ projectHandlers.forEach(function(handler) {
   observer.observe(handler.project);
 });
 
-var headerTitle = document.querySelector('.header-title');
-var header = document.querySelector('.header');
-
-function updateHeaderSpacing() {
-  headerTitle.style.letterSpacing = '0.01em';
-}
-
-window.addEventListener('scroll', function() {
-  requestAnimationFrame(updateHeaderSpacing);
-});
-
-window.addEventListener('resize', function() {
-  requestAnimationFrame(updateHeaderSpacing);
-});
-
-updateHeaderSpacing();
-
 document.querySelector('.footer-arrow').addEventListener('click', function() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
@@ -280,6 +290,11 @@ document.querySelector('[data-modal="about"]').addEventListener('click', functio
   document.getElementById('about-modal').classList.add('active');
 });
 
+document.querySelector('[data-modal="cv"]').addEventListener('click', function(e) {
+  e.preventDefault();
+  document.getElementById('cv-modal').classList.add('active');
+});
+
 document.querySelectorAll('.modal-close').forEach(function(btn) {
   btn.addEventListener('click', function() {
     this.closest('.modal-overlay').classList.remove('active');
@@ -292,4 +307,49 @@ document.querySelectorAll('.modal-overlay').forEach(function(overlay) {
       this.classList.remove('active');
     }
   });
+});
+
+function getVisibleProjectHandler() {
+  var viewportCenter = window.innerHeight / 2;
+  var closest = null;
+  var closestDist = Infinity;
+
+  projectHandlers.forEach(function(handler) {
+    var rect = handler.project.getBoundingClientRect();
+    var projectCenter = rect.top + rect.height / 2;
+    var dist = Math.abs(projectCenter - viewportCenter);
+    if (dist < closestDist) {
+      closestDist = dist;
+      closest = handler;
+    }
+  });
+
+  return closest;
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+
+  var handler = getVisibleProjectHandler();
+  if (!handler) return;
+
+  if (e.key === 'ArrowLeft') {
+    e.preventDefault();
+    var leftArrow = handler.project.querySelector('.image-arrow-left');
+    if (leftArrow) leftArrow.click();
+  } else if (e.key === 'ArrowRight') {
+    e.preventDefault();
+    var rightArrow = handler.project.querySelector('.image-arrow-right');
+    if (rightArrow) rightArrow.click();
+  } else if (e.key === ' ') {
+    e.preventDefault();
+    var video = handler.project.querySelector('.project-video');
+    if (video && video.classList.contains('active')) {
+      if (video.paused) {
+        video.play();
+      } else {
+        video.pause();
+      }
+    }
+  }
 });
