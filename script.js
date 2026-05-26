@@ -134,6 +134,21 @@ function setupProject(projectId) {
     video.addEventListener('pause', function() {
       videoOverlay.innerHTML = '<svg width="24" height="24" viewBox="0 0 36 36"><path d="M12 9l15 9-15 9z" fill="currentColor"/></svg>';
     });
+
+    video.addEventListener('click', function() {
+      if (video.paused) {
+        video.play();
+      } else {
+        video.pause();
+      }
+    });
+
+    video.addEventListener('mouseenter', function() {
+      if (videoOverlay) videoOverlay.classList.add('video-hover');
+    });
+    video.addEventListener('mouseleave', function() {
+      if (videoOverlay) videoOverlay.classList.remove('video-hover');
+    });
   }
 
   function showMedia(index) {

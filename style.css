@@ -173,12 +173,12 @@ body {
   pointer-events: none;
 }
 
-.video-overlay.visible {
-  display: flex;
+.video-overlay.visible.video-hover {
+  opacity: 1;
 }
 
-.project-image-wrapper:hover ~ .video-overlay.visible {
-  opacity: 1;
+.video-overlay.visible {
+  display: flex;
 }
 
 .project-info {
