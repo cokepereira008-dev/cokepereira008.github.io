@@ -166,7 +166,7 @@ body {
   background: rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
-  color: #000000;
+  color: #ffffff;
   opacity: 0;
   transition: opacity 0.25s ease;
   pointer-events: none;
@@ -176,7 +176,7 @@ body {
   display: flex;
 }
 
-.project-image-container:hover .video-overlay.visible {
+.project-image-wrapper:hover .video-overlay.visible {
   opacity: 1;
   pointer-events: auto;
 }

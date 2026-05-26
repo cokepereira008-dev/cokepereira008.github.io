@@ -125,7 +125,7 @@ function setupProject(projectId) {
     videoOverlay = document.createElement('div');
     videoOverlay.className = 'video-overlay';
     videoOverlay.innerHTML = '<svg width="36" height="36" viewBox="0 0 36 36"><path d="M12 9l15 9-15 9z" fill="currentColor"/></svg>';
-    project.querySelector('.project-image-container').appendChild(videoOverlay);
+    project.querySelector('.project-image-wrapper').appendChild(videoOverlay);
 
     videoOverlay.addEventListener('click', function(e) {
       e.stopPropagation();
