@@ -136,14 +136,6 @@ function setupProject(projectId) {
       }
     });
 
-    var wrapper = project.querySelector('.project-image-wrapper');
-    wrapper.addEventListener('mouseenter', function() {
-      if (videoOverlay) videoOverlay.classList.add('hover');
-    });
-    wrapper.addEventListener('mouseleave', function() {
-      if (videoOverlay) videoOverlay.classList.remove('hover');
-    });
-
     video.addEventListener('play', function() {
       videoOverlay.innerHTML = '<svg width="24" height="24" viewBox="0 0 36 36"><path d="M11 8h6v20h-6zM19 8h6v20h-6z" fill="currentColor"/></svg>';
     });
