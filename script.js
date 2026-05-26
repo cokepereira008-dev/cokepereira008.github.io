@@ -124,7 +124,7 @@ function setupProject(projectId) {
   if (video) {
     videoOverlay = document.createElement('div');
     videoOverlay.className = 'video-overlay';
-    videoOverlay.innerHTML = '<svg width="36" height="36" viewBox="0 0 36 36"><path d="M12 9l15 9-15 9z" fill="currentColor"/></svg>';
+    videoOverlay.innerHTML = '<svg width="36" height="36" viewBox="0 0 36 36"><path d="M12 9l16 9-16 9z" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linejoin="round"/></svg>';
     project.querySelector('.project-image-wrapper').appendChild(videoOverlay);
 
     videoOverlay.addEventListener('click', function(e) {
@@ -137,11 +137,11 @@ function setupProject(projectId) {
     });
 
     video.addEventListener('play', function() {
-      videoOverlay.innerHTML = '<svg width="36" height="36" viewBox="0 0 36 36"><path d="M11 8h6v20h-6zM19 8h6v20h-6z" fill="currentColor"/></svg>';
+      videoOverlay.innerHTML = '<svg width="36" height="36" viewBox="0 0 36 36"><path d="M13 9v18M23 9v18" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round"/></svg>';
     });
 
     video.addEventListener('pause', function() {
-      videoOverlay.innerHTML = '<svg width="36" height="36" viewBox="0 0 36 36"><path d="M12 9l15 9-15 9z" fill="currentColor"/></svg>';
+      videoOverlay.innerHTML = '<svg width="36" height="36" viewBox="0 0 36 36"><path d="M12 9l16 9-16 9z" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linejoin="round"/></svg>';
     });
   }
 
