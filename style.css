@@ -164,9 +164,9 @@ body {
   display: none;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   color: #ffffff;
   opacity: 0;
   transition: opacity 0.25s ease;
