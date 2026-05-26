@@ -177,7 +177,7 @@ body {
   display: flex;
 }
 
-.project-image-wrapper:hover .video-overlay.visible {
+.video-overlay.visible.hover {
   opacity: 1;
   pointer-events: auto;
 }
