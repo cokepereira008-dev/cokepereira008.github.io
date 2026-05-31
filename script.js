@@ -96,6 +96,17 @@ const projects = {
       'media/too_much/too_much_4.mp4'
     ]
   },
+  nova: {
+    media: [
+      'media/nova/nova_1.jpg',
+      'media/nova/nova_2.jpeg',
+      'media/nova/nova_3.jpeg',
+      'media/nova/nova_4.jpeg',
+      'media/nova/nova_5.jpeg',
+      'media/nova/nova_6.mp4',
+      'media/nova/nova_7.mp4'
+    ]
+  },
   moura: {
     media: [
       'media/moura/moura 1.jpg'
