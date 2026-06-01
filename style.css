@@ -237,21 +237,12 @@ body {
   }
 
   .project-image-container {
-    height: 40vh;
-    min-height: 250px;
+    height: 55vh;
+    min-height: 350px;
   }
 
   .image-arrow {
-    display: block;
-    padding: 0.5rem;
-  }
-
-  .image-arrow-left {
-    left: 0.25rem;
-  }
-
-  .image-arrow-right {
-    right: 0.25rem;
+    display: none;
   }
 
   .project-title {
@@ -260,11 +251,6 @@ body {
 
   .project-description {
     font-size: 0.9375rem;
-  }
-
-  a[target="_blank"]::after {
-    content: "↗";
-    margin-left: 0.05em;
   }
 }
 
@@ -383,7 +369,7 @@ body {
 }
 
 a[target="_blank"]::after {
-  content: " ↗";
+  content: "\00a0↗";
   font-size: 0.65em;
   vertical-align: super;
 }
