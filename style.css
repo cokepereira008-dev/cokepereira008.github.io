@@ -237,8 +237,21 @@ body {
   }
 
   .project-image-container {
-    height: 55vh;
-    min-height: 350px;
+    height: 40vh;
+    min-height: 250px;
+  }
+
+  .image-arrow {
+    display: block;
+    padding: 0.5rem;
+  }
+
+  .image-arrow-left {
+    left: 0.25rem;
+  }
+
+  .image-arrow-right {
+    right: 0.25rem;
   }
 
   .project-title {
@@ -249,12 +262,9 @@ body {
     font-size: 0.9375rem;
   }
 
-  .image-arrow-left {
-    left: 0.5rem;
-  }
-
-  .image-arrow-right {
-    right: 0.5rem;
+  a[target="_blank"]::after {
+    content: "↗";
+    margin-left: 0.05em;
   }
 }
 
