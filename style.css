@@ -103,12 +103,6 @@ body {
   z-index: 10;
 }
 
-@media (max-width: 640px) {
-  .image-arrow {
-    display: none;
-  }
-}
-
 .image-arrow-left {
   left: -3.5rem;
 }
@@ -253,6 +247,14 @@ body {
 
   .project-description {
     font-size: 0.9375rem;
+  }
+
+  .image-arrow-left {
+    left: 0.5rem;
+  }
+
+  .image-arrow-right {
+    right: 0.5rem;
   }
 }
 
