@@ -109,7 +109,8 @@ const projects = {
   },
   moura: {
     media: [
-      'media/moura/moura 1.jpg'
+      'media/moura/moura_1.jpeg',
+      'media/moura/moura_2.jpg'
     ]
   }
 };
