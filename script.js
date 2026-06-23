@@ -148,6 +148,7 @@ function setupProject(projectId) {
     });
 
     video.addEventListener('click', function() {
+      video.muted = false;
       if (video.paused) {
         video.play();
       } else {
