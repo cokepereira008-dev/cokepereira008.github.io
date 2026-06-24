@@ -70,12 +70,6 @@ body {
   padding: 3rem 1.5rem;
   max-width: 800px;
   margin: 0 auto;
-  opacity: 0;
-  transition: opacity 0.05s ease;
-}
-
-.project.visible {
-  opacity: 1;
 }
 
 .project.last {
