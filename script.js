@@ -202,7 +202,7 @@ function setupProject(projectId) {
         img.onerror = function() {
           img.classList.remove('fade-out');
         };
-      }, 100);
+      }, 50);
     }
   }
 
@@ -284,7 +284,12 @@ var observer = new IntersectionObserver(function(entries) {
     var handler = projectHandlers.find(function(h) {
       return h.project === entry.target;
     });
-    if (handler && !entry.isIntersecting) {
+    if (!handler) return;
+
+    if (entry.isIntersecting) {
+      handler.project.classList.add('visible');
+    } else {
+      handler.project.classList.remove('visible');
       var video = handler.project.querySelector('.project-video');
       if (video && video.style.display === 'block') {
         video.pause();
@@ -296,6 +301,11 @@ var observer = new IntersectionObserver(function(entries) {
 projectHandlers.forEach(function(handler) {
   observer.observe(handler.project);
 });
+
+// First project visible immediately on load
+if (projectHandlers.length > 0) {
+  projectHandlers[0].project.classList.add('visible');
+}
 
 document.querySelector('.footer-arrow').addEventListener('click', function() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
