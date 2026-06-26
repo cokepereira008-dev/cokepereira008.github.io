@@ -182,6 +182,9 @@ function setupProject(projectId) {
         video.style.display = 'block';
         video.classList.add('active');
         video.currentTime = 0;
+        if (window.innerWidth > 640) {
+          video.muted = false;
+        }
         video.play().catch(function(){});
         if (videoOverlay) videoOverlay.classList.add('visible');
       }
