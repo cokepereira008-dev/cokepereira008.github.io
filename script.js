@@ -148,7 +148,7 @@ function setupProject(projectId) {
       if (overlayTimeout) clearTimeout(overlayTimeout);
       overlayTimeout = setTimeout(function() {
         videoOverlay.classList.remove('mobile-show');
-      }, 1000);
+      }, 1500);
     }
 
     video.addEventListener('play', function() {
