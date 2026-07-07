@@ -253,6 +253,10 @@ body {
   .project-description {
     font-size: 0.9375rem;
   }
+
+  .video-overlay.visible.mobile-show {
+    opacity: 1;
+  }
 }
 
 .footer {

@@ -139,12 +139,28 @@ function setupProject(projectId) {
     videoOverlay.innerHTML = '<svg width="24" height="24" viewBox="0 0 36 36"><path d="M12 9l15 9-15 9z" fill="currentColor"/></svg>';
     project.querySelector('.project-image-container').appendChild(videoOverlay);
 
+    var overlayTimeout = null;
+
+    function flashOverlay(html) {
+      videoOverlay.innerHTML = html;
+      videoOverlay.classList.add('visible');
+      videoOverlay.classList.add('mobile-show');
+      if (overlayTimeout) clearTimeout(overlayTimeout);
+      overlayTimeout = setTimeout(function() {
+        videoOverlay.classList.remove('mobile-show');
+      }, 1000);
+    }
+
     video.addEventListener('play', function() {
-      videoOverlay.innerHTML = '<svg width="24" height="24" viewBox="0 0 36 36"><path d="M11 8h6v20h-6zM19 8h6v20h-6z" fill="currentColor"/></svg>';
+      if (video.muted) {
+        flashOverlay('<svg width="24" height="24" viewBox="0 0 36 36" fill="currentColor"><path d="M8 13h5l7-7v24l-7-7H8z"/><path d="M21 12l-8 8m8 0l-8-8" stroke="currentColor" stroke-width="2" fill="none"/></svg>');
+      } else {
+        flashOverlay('<svg width="24" height="24" viewBox="0 0 36 36"><path d="M11 8h6v20h-6zM19 8h6v20h-6z" fill="currentColor"/></svg>');
+      }
     });
 
     video.addEventListener('pause', function() {
-      videoOverlay.innerHTML = '<svg width="24" height="24" viewBox="0 0 36 36"><path d="M12 9l15 9-15 9z" fill="currentColor"/></svg>';
+      flashOverlay('<svg width="24" height="24" viewBox="0 0 36 36"><path d="M12 9l15 9-15 9z" fill="currentColor"/></svg>');
     });
 
     video.addEventListener('click', function() {
