@@ -148,11 +148,15 @@ function setupProject(projectId) {
     });
 
     video.addEventListener('click', function() {
-      video.muted = false;
-      if (video.paused) {
-        video.play();
+      if (!video._unmuted) {
+        video._unmuted = true;
+        video.muted = false;
       } else {
-        video.pause();
+        if (video.paused) {
+          video.play();
+        } else {
+          video.pause();
+        }
       }
     });
 
